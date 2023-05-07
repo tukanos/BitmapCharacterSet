@@ -1,0 +1,54 @@
+#!/usr/bin/env superdoit_solo
+options
+{
+	SuperDoitOptionalOptionWithRequiredArg long: 'directory'.
+}
+%
+usage
+-----
+USAGE $basename [--help | -h] [--debug | -D] [--debugGem] [--directory=<gemstone-directory>]
+
+DESCRIPTION
+  Read from filetree repository and write project to a single topaz format .gs file.
+
+	With no options, the output will be written to gemstone/'bitmapcharacterset.gs. 
+
+OPTIONS
+  -h, --help      display usage message
+  -D, --debug     bring up topaz debugger in the event of a script error
+  --debugGem      If terminal is connected to stdout, bring up debugger. If not,
+                  dump stack to stdout and wait for topaz to attach using topaz
+                  DEBUGGEM command.
+  --directory=<gemstone-directory>
+                  Write xml-xmlparser.gs source file to <gemstone-directory>.
+
+EXAMPLES
+  $basename --help
+  $basename -D
+  $basename --debugGem
+
+  $basename  
+  $basename --directory=$HOME/dhenrich/
+-----
+%
+doit
+	| dirRef project t2f2tRoot |
+	self directory
+		ifNil: [ dirRef := self dirname parent / 'gemstone' ]
+		ifNotNil: [:path | dirRef := path asFileReference ].
+	dirRef ensureCreateDirectory.
+	t2f2tRoot := self dirname parent / 't2f2t'.
+	project := Rowan
+		projectFromUrl: 'file://' , (t2f2tRoot / 'specs' / 'filetree.ston') pathString
+		diskUrl: 'file://', self dirname parent pathString.
+	project
+		readPackageNamesBlock:[ :packageName | 
+			"exclude 31x, Baseline, ConfigurationOf GT and Pharo packages"
+			(packageName includesString: '31x') not and: [ (packageName includesString: 'Pharo') not and: [(packageName includesString: 'GT') not and: [(packageName includesString: 'Baseline') not and: [(packageName includesString: 'ConfigurationOf') not]]]]].
+	project 
+		exportTopazFormatTo: (dirRef / 'bitmapcharacterset.gs') pathString
+		logClassCreation: false 
+		excludeClassInitializers: false 
+		excludeRemoveAllMethods: true.
+	^ true
+%

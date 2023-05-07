@@ -19,6 +19,9 @@ doit
 true.
 %
 
+removeallmethods BitmapCharacterSet
+removeallclassmethods BitmapCharacterSet
+
 doit
 (TestCase
 	subclass: 'BitmapCharacterSetTest'
@@ -34,6 +37,9 @@ doit
 		immediateInvariant.
 true.
 %
+
+removeallmethods BitmapCharacterSetTest
+removeallclassmethods BitmapCharacterSetTest
 
 ! Class implementation for 'BitmapCharacterSet'
 

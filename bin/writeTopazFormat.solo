@@ -49,6 +49,6 @@ doit
 		exportTopazFormatTo: (dirRef / 'bitmapcharacterset.gs') pathString
 		logClassCreation: false 
 		excludeClassInitializers: false 
-		excludeRemoveAllMethods: true.
+		excludeRemoveAllMethods: false.
 	^ true
 %

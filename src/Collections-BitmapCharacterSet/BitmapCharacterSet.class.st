@@ -4,29 +4,29 @@ This class implements a set of Character objects similar to CharacterSet and Wid
 (Used by and heavily optimized for XMLParser; please refactor carefully)
 "
 Class {
-	#name : #BitmapCharacterSet,
-	#superclass : #Collection,
+	#name : 'BitmapCharacterSet',
+	#superclass : 'Collection',
 	#instVars : [
 		'byteCharacters',
 		'wideCharacters',
 		'tally'
 	],
-	#category : #'Collections-BitmapCharacterSet-Base'
+	#category : 'Collections-BitmapCharacterSet-Base'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 BitmapCharacterSet class >> new [
 
 	^ self new: 256
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 BitmapCharacterSet class >> new: aCapacity [
 
 	^ self basicNew initialize: aCapacity
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 BitmapCharacterSet class >> newFrom: aCollection [
 	"for GS portability"
 
@@ -35,7 +35,7 @@ BitmapCharacterSet class >> newFrom: aCollection [
 		yourself
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 BitmapCharacterSet >> , aCollection [
 	"GS doesn't define #, for non-Sequenceable collections"
 
@@ -44,7 +44,7 @@ BitmapCharacterSet >> , aCollection [
 		  yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 BitmapCharacterSet >> = anObject [
 
 	self == anObject
@@ -60,7 +60,7 @@ BitmapCharacterSet >> = anObject [
 	^ true
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 BitmapCharacterSet >> add: aCharacter [
 
 	| asciiValue |
@@ -92,7 +92,7 @@ BitmapCharacterSet >> add: aCharacter [
 	^ aCharacter
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 BitmapCharacterSet >> addRangeFrom: aStartCharacter to: aStopCharacter [
 	"Adds character range from aStartCharacter to aStopCharacter inclusive
 	or none if aStartCharacter > aStopCharacter. Returns self to avoid
@@ -105,13 +105,13 @@ BitmapCharacterSet >> addRangeFrom: aStartCharacter to: aStopCharacter [
 		do: [:i | self add: (Character value: i)]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 BitmapCharacterSet >> byteCharacters [
 
 	^ byteCharacters
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 BitmapCharacterSet >> byteCharactersDo: aBlock [
 
 	1 to: byteCharacters size do: [ :i |
@@ -119,7 +119,7 @@ BitmapCharacterSet >> byteCharactersDo: aBlock [
 			aBlock value: (Character value: i - 1) ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BitmapCharacterSet >> capacity [
 
 	^ byteCharacters size +
@@ -128,7 +128,7 @@ BitmapCharacterSet >> capacity [
 			ifNotNil: [wideCharacters size * 8])
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 BitmapCharacterSet >> complement [
 
 	| copy |
@@ -140,14 +140,14 @@ BitmapCharacterSet >> complement [
 	^ copy
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 BitmapCharacterSet >> copyEmpty [
 	"reimplemented for GS and Squeak compatibility"
 
 	^ self species new: self capacity
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 BitmapCharacterSet >> do: aBlock [
 
 	self
@@ -155,7 +155,7 @@ BitmapCharacterSet >> do: aBlock [
 		wideCharactersDo: aBlock
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 BitmapCharacterSet >> growWideCharacterBitmapTo: aSizeInBytes [
 
 	| newSize |
@@ -171,14 +171,14 @@ BitmapCharacterSet >> growWideCharacterBitmapTo: aSizeInBytes [
 					startingAt: 1]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 BitmapCharacterSet >> hasWideCharacters [
 
 	self wideCharactersDo: [:each | ^ true].
 	^ false
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 BitmapCharacterSet >> hash [
 
 	| hash |
@@ -188,7 +188,7 @@ BitmapCharacterSet >> hash [
 	^ hash bitXor: self size hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 BitmapCharacterSet >> includes: aCharacter [
 
 	| asciiValue |
@@ -210,7 +210,7 @@ BitmapCharacterSet >> includes: aCharacter [
 				(1 bitShift: 7 - (asciiValue bitAnd: 7))) > 0]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 BitmapCharacterSet >> includesRangeFrom: aStartCharacter to: aStopCharacter [
 	"Tests for character range from aStartCharacter to aStopCharacter
 	inclusive. Always returns true if aStartCharacter > aStopCharacter."
@@ -225,7 +225,7 @@ BitmapCharacterSet >> includesRangeFrom: aStartCharacter to: aStopCharacter [
 	^ true
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 BitmapCharacterSet >> initialize: aCapacity [
 
 	byteCharacters := Array new: 256 withAll: false.
@@ -238,20 +238,20 @@ BitmapCharacterSet >> initialize: aCapacity [
 	tally := 0
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 BitmapCharacterSet >> isEmpty [
 	"Squeak's Collection>>#isEmpty is inefficient"
 
 	^ self size = 0
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 BitmapCharacterSet >> maxWideCharactersSize [
 
 	^ 139232 "(16r10FFFF bitShift: -3) - 31"
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 BitmapCharacterSet >> postCopy [
 
 	byteCharacters := byteCharacters copy.
@@ -259,7 +259,7 @@ BitmapCharacterSet >> postCopy [
 		ifNotNil: [wideCharacters := wideCharacters copy]
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 BitmapCharacterSet >> remove: aCharacter ifAbsent: aBlock [
 	| asciiValue |
 
@@ -293,7 +293,7 @@ BitmapCharacterSet >> remove: aCharacter ifAbsent: aBlock [
 	^ aCharacter
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 BitmapCharacterSet >> removeAll [
 	"empties but preserves the capacity"
 
@@ -310,7 +310,7 @@ BitmapCharacterSet >> removeAll [
 	tally := 0.
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 BitmapCharacterSet >> removeRangeFrom: aStartCharacter to: aStopCharacter [
 	"Removes character range from aStartCharacter to aStopCharacter inclusive
 	or none if aStartCharacter > aStopCharacter. Returns self to avoid
@@ -324,19 +324,19 @@ BitmapCharacterSet >> removeRangeFrom: aStartCharacter to: aStopCharacter [
 		do: [:i | self remove: (Character value: i)]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BitmapCharacterSet >> size [
 
 	^ tally
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 BitmapCharacterSet >> wideCharacters [
 
 	^ wideCharacters
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 BitmapCharacterSet >> wideCharactersDo: aBlock [
 	"optimized for speed with to:do: and inlining; do not refactor"
 

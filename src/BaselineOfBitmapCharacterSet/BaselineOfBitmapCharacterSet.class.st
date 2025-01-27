@@ -10,8 +10,8 @@ Class {
 { #category : #baselines }
 BaselineOfBitmapCharacterSet >> baseline: spec [
 	<baseline>
-	
-	spec for: #common do: [ 
+
+	spec for: #common do: [
 		"Packages and Dependencies"
 		spec 
 			package: 'Collections-BitmapCharacterSet';
@@ -23,6 +23,6 @@ BaselineOfBitmapCharacterSet >> baseline: spec [
 				group: 'Tests' with: #('Collections-BitmapCharacterSet-Tests');
 				group: 'CI' with: #('Tests');
 				group: 'all' with: #('Core' 'Tests');
-				group: 'default' with: #('all')	
+				group: 'default' with: #('all')
 	]
 ]

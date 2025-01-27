@@ -1,0 +1,9 @@
+RwSimpleProjectLoadComponentV2 {
+  #name : 'BitmapCharacterSet',
+  #projectNames : [],
+  #componentNames : [],
+  #packageNames : [
+                'Collections-BitmapCharacterSet'
+  ],
+  #comment : 'Core packages for BitmapCharacterSet'
+}

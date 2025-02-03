@@ -1,9 +1,10 @@
 RwSimpleProjectLoadComponentV2 {
-  #name : 'BitmapCharacterSet',
+  #name : 'CI',
   #projectNames : [],
   #componentNames : [],
   #packageNames : [
                 'Collections-BitmapCharacterSet'
+                'Collections-BitmapCharacterSet-Tests'
   ],
-  #comment : 'Core packages for BitmapCharacterSet'
+  #comment : 'All packages needed for CI using package BitmapCharacterSet'
 }

@@ -1,0 +1,22 @@
+RwLoadSpecificationV2 {
+  #specName: 'BitmapCharacterSet-CI',
+  #projectName : 'BitmapCharacterSet',
+  #gitUrl :  'git@github.com:pharo-contributions/BitmapCharacterSet.git',
+  #revision : 'master',
+  #projectSpecFile : 'rowan/project.ston',
+  #componentNames : [
+    'Tests'
+  ],
+  #customConditionalAttributes : [
+    'tests',
+    'sunit'
+  ],
+  #platformProperties : {
+    'gemstone' : {
+      'allusers' : {
+        #defaultSymbolDictName : 'XMLSupport'
+      }
+    }
+  },
+  #comment : 'Load spec for the CI setup of BitmapCharacterSet'
+}

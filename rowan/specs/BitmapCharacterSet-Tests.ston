@@ -1,0 +1,19 @@
+RwLoadSpecificationV2 {
+  #specName: 'BitmapCharacterSet-Tests',
+  #projectName : 'BitmapCharacterSet',
+  #gitUrl :  'git@github.com:pharo-contributions/BitmapCharacterSet.git',
+  #revision : 'master',
+  #projectSpecFile : 'rowan/project.ston',
+  #componentNames : [
+    'Tests'
+  ],
+  #customConditionalAttributes : [ ],
+  #platformProperties : {
+  'gemstone' : {
+    'allusers' : {
+      #defaultSymbolDictName : 'XMLSupport'
+    }
+  }
+  },
+#comment : 'Load spec for BitmapCharacterSet tests'
+}

@@ -7,5 +7,5 @@ RwProjectSpecificationV2 {
   #specsPath : 'rowan/specs',
   #packageFormat : 'tonel',
   #packageConvention : 'Monticello',
-  #comment : 'BitmapCharacterSet rowan project'
+  #comment : 'Rowanized BitmapCharacterSet'
 }

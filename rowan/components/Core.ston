@@ -3,7 +3,18 @@ RwSimpleProjectLoadComponentV2 {
   #projectNames : [],
   #componentNames : [],
   #packageNames : [
-      'Collections-BitmapCharacterSet'
+                'Collections-BitmapCharacterSet'
   ],
+  #conditionalPackageMapSpecs : {
+    'gemstone' : {
+      'allusers' : {
+        #packageNameToPlatformPropertiesMap : {
+          'Collections-BitmapCharacterSet' : {
+            'symbolDictName' : 'XMLSupport'
+          }
+        }
+      }
+    }
+  },
   #comment : 'BitmapCharacterSet Core'
 }

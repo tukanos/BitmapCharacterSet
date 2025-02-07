@@ -4,9 +4,7 @@ Please describe the package using the class comment of the included manifest cla
 Class {
 	#name : 'ManifestCollectionsBitmapCharacterSetTests',
 	#superclass : 'PackageManifest',
-	#category : 'Collections-BitmapCharacterSet-Tests-Manifest',
-	#package : 'Collections-BitmapCharacterSet-Tests',
-	#tag : 'Manifest'
+	#category : 'Collections-BitmapCharacterSet-Tests-Pharo'
 }
 
 { #category : 'code-critics' }

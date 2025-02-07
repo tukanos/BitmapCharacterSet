@@ -8,12 +8,5 @@ RwLoadSpecificationV2 {
     'Tests'
   ],
   #customConditionalAttributes : [ ],
-  #platformProperties : {
-  'gemstone' : {
-    'allusers' : {
-      #defaultSymbolDictName : 'XMLSupport'
-    }
-  }
-  },
-#comment : 'Load spec for BitmapCharacterSet tests'
+  #comment : 'Load spec for BitmapCharacterSet tests'
 }

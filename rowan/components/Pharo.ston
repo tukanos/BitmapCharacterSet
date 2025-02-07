@@ -1,0 +1,10 @@
+RwSimpleProjectLoadComponentV2 {
+	#name : 'Pharo',
+	#condition : 'common',
+	#projectNames : [ ],
+	#componentNames : [ ],
+	#packageNames : [
+		'Collections-BitmapCharacterSet-Tests-Pharo'
+	],
+	#comment : 'placeholder component, since packages must be managed by a component'
+}

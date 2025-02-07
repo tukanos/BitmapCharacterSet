@@ -7,9 +7,7 @@ Class {
 	#instVars : [
 		'characters'
 	],
-	#category : 'Collections-BitmapCharacterSet-Tests-Base',
-	#package : 'Collections-BitmapCharacterSet-Tests',
-	#tag : 'Base'
+	#category : 'Collections-BitmapCharacterSet-Tests-Base'
 }
 
 { #category : 'enumerating' }
@@ -281,6 +279,14 @@ BitmapCharacterSetTest >> testEquals [
 ]
 
 { #category : 'tests' }
+BitmapCharacterSetTest >> testHash [
+
+	self
+		assert: self emptySet hash equals: self emptySet hash;
+		assert: self nonEmptySet hash equals: self nonEmptySet hash
+]
+
+{ #category : 'tests' }
 BitmapCharacterSetTest >> testHasWideCharacters [
 
 	| set |
@@ -295,14 +301,6 @@ BitmapCharacterSetTest >> testHasWideCharacters [
 
 	set remove: 256 asCharacter.
 	self deny: set hasWideCharacters
-]
-
-{ #category : 'tests' }
-BitmapCharacterSetTest >> testHash [
-
-	self
-		assert: self emptySet hash equals: self emptySet hash;
-		assert: self nonEmptySet hash equals: self nonEmptySet hash
 ]
 
 { #category : 'tests' }

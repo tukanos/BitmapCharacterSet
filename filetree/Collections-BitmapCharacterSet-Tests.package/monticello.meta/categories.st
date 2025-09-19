@@ -1,1 +1,1 @@
-SystemOrganization addCategory: #'Collections-BitmapCharacterSet-Tests'!
+SystemOrganization addCategory: #'Collections-BitmapCharacterSet-Tests-Base'!

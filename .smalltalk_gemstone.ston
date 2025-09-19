@@ -1,10 +1,10 @@
 SmalltalkCISpec {
-	#loading : [
-		SCIMetacelloLoadSpec {
-			#baseline : 'BitmapCharacterSet',
-			#directory : 'filetree',
-			#load : [ 'Tests' ],
-			#platforms : [ #gemstone]
-		}
-	]
+    #loading : [
+        SCIMetacelloLoadSpec {
+            #baseline : 'BitmapCharacterSet',
+            #directory : 'filetree',
+            #load : [ 'Tests' ],
+            #platforms : [ #gemstone]
+        }
+    ]
 }

@@ -1,1 +1,10 @@
-.smalltalk_gemstone.ston
+SmalltalkCISpec {
+    #loading : [
+        SCIMetacelloLoadSpec {
+            #baseline : 'BitmapCharacterSet',
+            #directory : 'filetree',
+            #load : [ 'Tests' ],
+            #platforms : [ #gemstone]
+        }
+    ]
+}
